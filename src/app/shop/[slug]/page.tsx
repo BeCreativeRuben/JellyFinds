@@ -46,44 +46,41 @@ export default async function ProductPage({
         <Link href="/shop" className="hover:text-ink">
           Shop
         </Link>
-        <span className="mx-2">/</span>
+        <span className="mx-2 text-ink-soft/40">/</span>
         <Link href={`/shop?room=${product.room}`} className="hover:text-ink">
           {roomLabel(product.room)}
         </Link>
       </p>
-      <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div className="overflow-hidden rounded-[2rem] ring-1 ring-ink/6">
+      <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div className="overflow-hidden rounded-3xl bg-cream">
           <ProductVisual product={product} size="lg" />
         </div>
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-jelly">
+        <div className="lg:py-4">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-soft">
             {roomLabel(product.room)}
           </p>
-          <h1 className="mt-3 font-heading text-5xl tracking-tight">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-3 text-lg text-ink-soft">{product.tagline}</p>
-          <p className="mt-6 text-3xl font-semibold">{formatPrice(product.price)}</p>
-          <p className="mt-5 max-w-md text-sm leading-7 text-ink-soft">
+          <p className="mt-2 text-base text-ink-soft">{product.tagline}</p>
+          <p className="mt-5 text-2xl font-bold">{formatPrice(product.price)}</p>
+          <p className="mt-4 max-w-md text-sm leading-7 text-ink-soft">
             {product.description}
           </p>
-          <ul className="mt-6 space-y-2 text-sm">
+          <ul className="mt-5 space-y-2 text-sm">
             {product.details.map((detail) => (
               <li key={detail} className="flex items-center gap-2">
-                <span
-                  className="size-1.5 rounded-full"
-                  style={{ background: product.accent }}
-                />
+                <span className="size-1 rounded-full bg-ink-soft" />
                 {detail}
               </li>
             ))}
           </ul>
-          <AddToCartButton amazonUrl={product.amazonUrl} className="mt-8" />
+          <AddToCartButton amazonUrl={product.amazonUrl} className="mt-7" />
         </div>
       </div>
       <section className="mt-20">
-        <h2 className="font-heading text-3xl tracking-tight">Nearby on the shelf</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <h2 className="text-2xl font-bold tracking-tight">Nearby on the shelf</h2>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {related.map((item) => (
             <ProductCard key={item.slug} product={item} />
           ))}

@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 
 export function CartView() {
   return (
-    <div className="rounded-[1.8rem] bg-cream px-6 py-20 text-center ring-1 ring-ink/6">
-      <p className="font-heading text-3xl tracking-tight">
+    <div className="rounded-3xl bg-cream px-6 py-20 text-center">
+      <p className="text-2xl font-semibold tracking-tight">
         We don&rsquo;t have a basket — yet.
       </p>
       <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-ink-soft">
@@ -16,7 +16,7 @@ export function CartView() {
       </p>
       <Button
         asChild
-        className="mt-8 h-12 rounded-full bg-ink px-6 text-paper"
+        className="mt-7 h-11 rounded-full bg-ink px-6 text-paper hover:bg-ink/85"
       >
         <Link href="/shop">Browse the shop</Link>
       </Button>

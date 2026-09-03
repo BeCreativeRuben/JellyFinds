@@ -28,6 +28,8 @@ export type Product = {
   featured?: boolean;
   asin: string;
   amazonUrl: string;
+  imageUrl?: string;
+  imageAlt?: string;
 };
 
 export const rooms: { slug: Room; label: string; blurb: string }[] = [
@@ -69,6 +71,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B07SQ2FZTK",
     amazonUrl: "https://www.amazon.nl/dp/B07SQ2FZTK",
+    imageUrl: "https://m.media-amazon.com/images/I/71qxPLc1cAL._AC_SL1500_.jpg",
+    imageAlt: "Philips Hue Go portable table lamp",
   },
   {
     slug: "amazon-echo-dot",
@@ -89,6 +93,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B09B8X9RGM",
     amazonUrl: "https://www.amazon.nl/dp/B09B8X9RGM",
+    imageUrl: "https://m.media-amazon.com/images/I/714DG-pdqZL._AC_SL1500_.jpg",
+    imageAlt: "Amazon Echo Dot 5th generation smart speaker",
   },
   {
     slug: "kindle-paperwhite",
@@ -110,6 +116,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B0CFPWLGF2",
     amazonUrl: "https://www.amazon.nl/dp/B0CFPWLGF2",
+    imageUrl: "https://m.media-amazon.com/images/I/61Xm27jEtkL._AC_SL1000_.jpg",
+    imageAlt: "Amazon Kindle Paperwhite e-reader",
   },
   {
     slug: "creative-pebble-v3",
@@ -132,6 +140,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B08F5BQZL8",
     amazonUrl: "https://www.amazon.nl/dp/B08F5BQZL8",
+    imageUrl: "https://m.media-amazon.com/images/I/61aza8PGr+L._AC_SL1500_.jpg",
+    imageAlt: "Creative Pebble V3 desktop speakers",
   },
   {
     slug: "benq-screenbar",
@@ -153,6 +163,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B0785D93KD",
     amazonUrl: "https://www.amazon.nl/dp/B0785D93KD",
+    imageUrl: "https://m.media-amazon.com/images/I/41nI6sm+OKS._AC_SL1000_.jpg",
+    imageAlt: "BenQ ScreenBar monitor light",
   },
   {
     slug: "philips-hue-iris",
@@ -174,6 +186,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B08CXZJWM9",
     amazonUrl: "https://www.amazon.nl/dp/B08CXZJWM9",
+    imageUrl: "https://m.media-amazon.com/images/I/71SDWdMe2NL._AC_SL1500_.jpg",
+    imageAlt: "Philips Hue Iris accent lamp",
   },
   {
     slug: "galaxy-projector",
@@ -195,6 +209,8 @@ export const products: Product[] = [
     featured: true,
     asin: "B09M2V7X38",
     amazonUrl: "https://www.amazon.nl/dp/B09M2V7X38",
+    imageUrl: "https://m.media-amazon.com/images/I/71aam8rrsAL._AC_SL1500_.jpg",
+    imageAlt: "One Fire galaxy projector with starry sky",
   },
   {
     slug: "levitating-moon-lamp",
@@ -215,6 +231,8 @@ export const products: Product[] = [
     ],
     asin: "B0B7LQKYVZ",
     amazonUrl: "https://www.amazon.nl/dp/B0B7LQKYVZ",
+    imageUrl: "https://m.media-amazon.com/images/I/71qTM2g319L._AC_SL1200_.jpg",
+    imageAlt: "Levitating moon lamp with wooden base",
   },
   {
     slug: "frameo-photo-frame",
@@ -235,6 +253,8 @@ export const products: Product[] = [
     ],
     asin: "B0DNMGKW2H",
     amazonUrl: "https://www.amazon.nl/dp/B0DNMGKW2H",
+    imageUrl: "https://m.media-amazon.com/images/I/71ZVgunY7tL._AC_SL1500_.jpg",
+    imageAlt: "Frameo digital photo frame 10.1 inch",
   },
   {
     slug: "benq-screenbar-halo",
@@ -255,6 +275,8 @@ export const products: Product[] = [
     ],
     asin: "B0DK59YKRS",
     amazonUrl: "https://www.amazon.nl/dp/B0DK59YKRS",
+    imageUrl: "https://m.media-amazon.com/images/I/41fmQI53UNL._AC_SL1000_.jpg",
+    imageAlt: "BenQ ScreenBar Halo 2 monitor light with wireless dial",
   },
 ];
 

@@ -6,10 +6,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
-      <p className="text-xs font-medium uppercase tracking-[0.2em] text-jelly">
+      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-ink-soft">
         The house
       </p>
-      <h1 className="mt-3 font-heading text-5xl tracking-tight sm:text-6xl">
+      <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
         A shop for objects that feel a bit alive.
       </h1>
       <div className="mt-8 space-y-6 text-base leading-8 text-ink-soft">
