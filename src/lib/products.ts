@@ -76,7 +76,7 @@ export const products: Product[] = [
     tagline: "Big sound in a small speaker, with Alexa.",
     description:
       "The Echo Dot (5th generation, 2022 release) delivers vibrant sound for its size. Ask Alexa to play music, answer questions, set timers, or control compatible smart home devices. Connects via Wi-Fi and Bluetooth. Speaks Dutch.",
-    price: 64.99,
+    price: 89.99,
     room: "living-room",
     form: "speaker",
     hue: 28,
