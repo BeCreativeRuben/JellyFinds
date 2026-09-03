@@ -16,7 +16,7 @@ export function AddToCartButton({
       asChild
       size="lg"
       className={cn(
-        "h-12 rounded-full bg-ink px-6 text-sm font-medium text-paper hover:bg-ink/90",
+        "h-11 rounded-full bg-ink px-6 text-sm font-medium text-paper hover:bg-ink/85",
         className,
       )}
     >

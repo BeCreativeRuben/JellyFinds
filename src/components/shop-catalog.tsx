@@ -56,13 +56,13 @@ export function ShopCatalog({ products }: { products: Product[] }) {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search lamps, clocks, frames…"
-            className="h-11 w-full rounded-full border border-ink/10 bg-cream px-4 text-sm outline-none ring-jelly/30 placeholder:text-ink-soft focus:ring-3 sm:w-72"
+            placeholder="Search lamps, speakers, frames…"
+            className="h-10 w-full rounded-full border border-ink/[0.08] bg-cream px-4 text-sm outline-none placeholder:text-ink-soft focus:ring-2 focus:ring-ink/10 sm:w-64"
           />
           <select
             value={sort}
             onChange={(event) => setSort(event.target.value as SortKey)}
-            className="h-11 rounded-full border border-ink/10 bg-cream px-4 text-sm outline-none"
+            className="h-10 rounded-full border border-ink/[0.08] bg-cream px-4 text-sm outline-none"
           >
             <option value="featured">Featured</option>
             <option value="price-asc">Price, low to high</option>
@@ -71,14 +71,14 @@ export function ShopCatalog({ products }: { products: Product[] }) {
         </div>
       </div>
       {filtered.length === 0 ? (
-        <div className="rounded-[1.6rem] bg-cream px-6 py-16 text-center ring-1 ring-ink/6">
-          <p className="font-heading text-2xl">Nothing in that corner yet.</p>
+        <div className="rounded-3xl bg-cream px-6 py-16 text-center">
+          <p className="text-xl font-semibold">Nothing in that corner yet.</p>
           <p className="mt-2 text-sm text-ink-soft">
             Try another room, or clear the search.
           </p>
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
@@ -105,7 +105,7 @@ function FilterChip({
         "rounded-full px-4 py-2 text-sm transition",
         active
           ? "bg-ink text-paper"
-          : "bg-cream text-ink-soft ring-1 ring-ink/8 hover:text-ink",
+          : "bg-cream text-ink-soft hover:text-ink",
       )}
     >
       {children}
