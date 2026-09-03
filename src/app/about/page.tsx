@@ -14,10 +14,10 @@ export default function AboutPage() {
       </h1>
       <div className="mt-8 space-y-6 text-base leading-8 text-ink-soft">
         <p>
-          JellyFinds started from a simple irritation: most “smart home”
-          catalogues look like they were designed in a server room. We wanted
-          the opposite — tech that can sit next to a sofa, a plant, a pile of
-          books, and not apologise for being there.
+          JellyFinds started from a simple irritation: most &ldquo;smart
+          home&rdquo; catalogues look like they were designed in a server room.
+          We wanted the opposite — tech that can sit next to a sofa, a plant, a
+          pile of books, and not apologise for being there.
         </p>
         <p>
           The name is a little silly on purpose. Jelly is translucent, slightly
@@ -27,15 +27,22 @@ export default function AboutPage() {
         </p>
         <p>
           Everything here is chosen for living rooms, bedrooms, and the small
-          desk in between. Lamps you can hold. A clock that behaves like
-          weather. A speaker that looks like a stone. Colour is allowed — used
-          like a cushion, not like a neon sign.
+          desk in between. Lamps you can hold. A speaker that sits like a stone
+          on the table. A monitor bar that lights the page, not the screen.
+          Colour is allowed — used like a cushion, not like a neon sign.
         </p>
         <p>
-          This first version is a complete storefront you can host on Vercel:
-          browse, bag, and a demo checkout. The products are curated fiction
-          with real prices as placeholders, ready to swap for a live catalogue
-          later.
+          Every product you see on JellyFinds is a real item available on
+          Amazon.nl. We hand-pick decorative tech that fits the quiet, colourful
+          rooms we care about, and link you straight to the Amazon product page
+          so you can buy with confidence. Prices shown are fetched from Amazon
+          and may change — always check the listing for the current offer.
+        </p>
+        <p>
+          We plan to join the Amazon Associates programme in the future, which
+          means we may earn a small commission on purchases made through our
+          links — at no extra cost to you. For now, the links are clean and
+          tag-free.
         </p>
       </div>
     </div>
