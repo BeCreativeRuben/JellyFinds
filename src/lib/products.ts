@@ -54,7 +54,7 @@ export const products: Product[] = [
     name: "Philips Hue Go",
     tagline: "A portable colour lamp that fits in a palm.",
     description:
-      "A palm-sized portable table lamp that washes a wall in up to 16 million colours. Dim it, set a light recipe for reading or relaxing, or let it drift through shades via the Hue app. Works with Alexa, Google and Apple Home — Hue Bridge required.",
+      "A palm-sized portable table lamp that washes a wall in up to 16 million colours. Dim it, set a light recipe for reading or relaxing, or let it drift through shades via the Hue app. Bluetooth works out of the box; add a Hue Bridge for timers, routines, and more accessories.",
     price: 69.95,
     room: "living-room",
     form: "pebble",
@@ -62,9 +62,9 @@ export const products: Product[] = [
     accent: "#F25C8A",
     details: [
       "White and coloured light, dimmable",
-      "App and voice control (Alexa, Google, Apple Home)",
-      "Hue Bridge required",
-      "USB powered, plastic shell",
+      "Bluetooth control — no Bridge needed",
+      "Optional Hue Bridge for timers and routines",
+      "Voice control (Alexa, Google, Apple Home)",
     ],
     featured: true,
     asin: "B07SQ2FZTK",
@@ -76,7 +76,7 @@ export const products: Product[] = [
     tagline: "Big sound in a small speaker, with Alexa.",
     description:
       "The Echo Dot (5th generation, 2022 release) delivers vibrant sound for its size. Ask Alexa to play music, answer questions, set timers, or control compatible smart home devices. Connects via Wi-Fi and Bluetooth. Speaks Dutch.",
-    price: 89.99,
+    price: 64.99,
     room: "living-room",
     form: "speaker",
     hue: 28,
@@ -96,7 +96,7 @@ export const products: Product[] = [
     tagline: "The fastest Kindle ever, with a 7″ glare-free display.",
     description:
       "A 7-inch Paperwhite with higher contrast and 25% faster page turns. The ultra-thin design, adjustable white-to-amber display, and USB-C charging that lasts up to 12 weeks make it a quiet companion for any bedside table. Waterproof and distraction-free — no social media, no notifications.",
-    price: 224.99,
+    price: 179.99,
     room: "bedroom",
     form: "frame",
     hue: 265,
