@@ -78,7 +78,7 @@ export default async function ProductPage({
               </li>
             ))}
           </ul>
-          <AddToCartButton slug={product.slug} className="mt-8" />
+          <AddToCartButton amazonUrl={product.amazonUrl} className="mt-8" />
         </div>
       </div>
       <section className="mt-20">

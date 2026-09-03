@@ -10,7 +10,7 @@ export default function CartPage() {
       <p className="text-xs font-medium uppercase tracking-[0.2em] text-jelly">
         Your bag
       </p>
-      <h1 className="mt-3 font-heading text-5xl tracking-tight">Carry it home</h1>
+      <h1 className="mt-3 font-heading text-5xl tracking-tight">Your bag</h1>
       <div className="mt-10">
         <CartView />
       </div>

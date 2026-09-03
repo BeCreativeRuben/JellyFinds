@@ -28,9 +28,9 @@ export default function Home() {
               <em className="text-jelly not-italic">glow</em> a little.
             </h1>
             <p className="mt-6 max-w-md text-base leading-8 text-ink-soft">
-              JellyFinds is a small shop of decorative tech — lamps you can
-              hold, clocks that behave like weather, and a speaker that sits
-              like a stone on the table.
+              JellyFinds is a curated shop of decorative tech — lamps you can
+              hold, speakers that sit like stones, and desk lights that know
+              when to dim. Real products, straight from Amazon.nl.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -108,8 +108,8 @@ export default function Home() {
             Tech that looks like it belongs next to a plant, not a router.
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-7 text-paper/65">
-            We pick objects for living rooms and bedrooms first. If it needs a
-            fifteen-page manual, it does not make the shelf.
+            We pick real objects for living rooms, bedrooms, and desks. If it
+            needs a fifteen-page manual, it does not make the shelf.
           </p>
           <Link
             href="/about"
