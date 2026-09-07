@@ -45,21 +45,25 @@ export function SiteFooter() {
           </p>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
-              <Link href="/about" className="text-ink-soft transition hover:text-ink">
-                About JellyFinds
-              </Link>
-            </li>
-            <li>
               <a href="mailto:hello@jellyfinds.studio" className="text-ink-soft transition hover:text-ink">
                 hello@jellyfinds.studio
               </a>
+            </li>
+            <li>
+              <Link href="/about" className="text-ink-soft transition hover:text-ink">
+                Associates disclosure
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-ink/[0.06]">
-        <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-ink-soft sm:px-8">
-          © {new Date().getFullYear()} JellyFinds
+        <p className="mx-auto max-w-6xl px-5 py-5 text-xs leading-5 text-ink-soft sm:px-8">
+          © {new Date().getFullYear()} JellyFinds. As an Amazon Associate we
+          earn from qualifying purchases.{" "}
+          <Link href="/about" className="underline-offset-2 hover:text-ink hover:underline">
+            Details
+          </Link>
         </p>
       </div>
     </footer>

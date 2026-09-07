@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/logo";
@@ -12,11 +12,23 @@ const links = [
   { href: "/shop?room=living-room", label: "Living" },
   { href: "/shop?room=bedroom", label: "Bedroom" },
   { href: "/shop?room=desk", label: "Desk" },
-  { href: "/about", label: "About" },
 ];
+
+function linkIsActive(pathname: string, href: string, room: string | null) {
+  if (href === "/shop") {
+    return pathname === "/shop" && !room;
+  }
+  if (href.startsWith("/shop?room=")) {
+    const target = href.slice("/shop?room=".length);
+    return pathname === "/shop" && room === target;
+  }
+  return pathname === href;
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const room = searchParams.get("room");
   const [open, setOpen] = useState(false);
 
   return (
@@ -30,7 +42,8 @@ export function SiteHeader() {
               href={link.href}
               className={cn(
                 "text-xs tracking-wide text-ink-soft transition hover:text-ink",
-                pathname === link.href && "text-ink font-medium",
+                linkIsActive(pathname, link.href, room) &&
+                  "font-medium text-ink",
               )}
             >
               {link.label}

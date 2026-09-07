@@ -1,20 +1,43 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
-import { useSearchParams } from "next/navigation";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/product-card";
 import { rooms, type Product, type Room } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
 type SortKey = "featured" | "price-asc" | "price-desc";
 
+const roomSlugs = new Set<string>(rooms.map((item) => item.slug));
+
+function parseRoomParam(value: string | null): Room | "all" {
+  if (value && roomSlugs.has(value)) return value as Room;
+  return "all";
+}
+
 export function ShopCatalog({ products }: { products: Product[] }) {
   const searchParams = useSearchParams();
-  const initialRoom = searchParams.get("room") as Room | null;
-  const initialQuery = searchParams.get("q") ?? "";
-  const [room, setRoom] = useState<Room | "all">(initialRoom ?? "all");
-  const [query, setQuery] = useState(initialQuery);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // URL is the source of truth so homepage / nav ?room= links actually filter.
+  const room = parseRoomParam(searchParams.get("room"));
+  const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [sort, setSort] = useState<SortKey>("featured");
+
+  const setRoom = useCallback(
+    (next: Room | "all") => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (next === "all") {
+        params.delete("room");
+      } else {
+        params.set("room", next);
+      }
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    },
+    [pathname, router, searchParams],
+  );
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();

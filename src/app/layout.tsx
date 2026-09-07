@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import { CartProvider } from "@/components/cart-provider";
 import { SiteFooter } from "@/components/site-footer";
@@ -27,7 +28,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartProvider>
-          <SiteHeader />
+          <Suspense
+            fallback={
+              <header className="sticky top-0 z-40 h-14 border-b border-ink/[0.06] bg-paper/80" />
+            }
+          >
+            <SiteHeader />
+          </Suspense>
           <main className="flex-1">{children}</main>
           <SiteFooter />
         </CartProvider>
