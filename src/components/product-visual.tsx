@@ -4,7 +4,7 @@ import type { Product } from "@/lib/products";
 
 type Size = "sm" | "md" | "lg";
 
-/** Uniform 1:1 white matte plates — object-contain keeps real Amazon photos honest. */
+/** Uniform 1:1 soft-neutral matte plates — real Amazon photos, object-contain. */
 const sizes: Record<Size, string> = {
   sm: "aspect-square w-full",
   md: "aspect-square w-full",
@@ -21,16 +21,19 @@ export function ProductVisual({
   product,
   size = "md",
   className,
+  blend = true,
 }: {
   product: Product;
   size?: Size;
   className?: string;
+  /** Dissolve white Amazon cutouts into the matte (CSS only; does not alter the photo file). */
+  blend?: boolean;
 }) {
   if (!product.imageUrl) {
     return (
       <div
         className={cn(
-          "flex items-center justify-center bg-white text-ink-soft",
+          "flex items-center justify-center bg-[#f5f5f7] text-ink-soft",
           sizes[size],
           className,
         )}
@@ -43,8 +46,7 @@ export function ProductVisual({
   return (
     <div
       className={cn(
-        // White matte letterboxes lifestyle shots and absorbs white Amazon cutouts.
-        "product-plate relative overflow-hidden bg-white",
+        "product-plate relative overflow-hidden bg-[#f5f5f7]",
         sizes[size],
         padding[size],
         className,
@@ -55,7 +57,10 @@ export function ProductVisual({
           src={product.imageUrl}
           alt={product.imageAlt ?? product.name}
           fill
-          className="object-contain transition duration-500 ease-out group-hover:scale-[1.03]"
+          className={cn(
+            "object-contain transition duration-500 ease-out group-hover:scale-[1.03]",
+            blend && "mix-blend-multiply",
+          )}
           sizes={
             size === "lg"
               ? "(max-width: 1024px) 100vw, 55vw"
