@@ -83,7 +83,7 @@ export const products: Product[] = [
     bestsellerRank: 3,
     asin: "B07SQ2FZTK",
     amazonUrl: "https://www.amazon.nl/dp/B07SQ2FZTK",
-    imageUrl: "https://m.media-amazon.com/images/I/71qxPLc1cAL._AC_SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61Y-ZbOSUaL._AC_SL1500_.jpg",
     imageAlt: "Philips Hue Go portable table lamp",
   },
   {
@@ -106,7 +106,7 @@ export const products: Product[] = [
     bestsellerRank: 6,
     asin: "B09B8X9RGM",
     amazonUrl: "https://www.amazon.nl/dp/B09B8X9RGM",
-    imageUrl: "https://m.media-amazon.com/images/I/714DG-pdqZL._AC_SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/712%2Bm-NrXVL._AC_SL1500_.jpg",
     imageAlt: "Amazon Echo Dot 5th generation smart speaker",
   },
   {
@@ -130,7 +130,7 @@ export const products: Product[] = [
     bestsellerRank: 7,
     asin: "B0CFPWLGF2",
     amazonUrl: "https://www.amazon.nl/dp/B0CFPWLGF2",
-    imageUrl: "https://m.media-amazon.com/images/I/61Xm27jEtkL._AC_SL1000_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/51vRJc7zIrL._AC_SL1000_.jpg",
     imageAlt: "Amazon Kindle Paperwhite e-reader",
   },
   {
@@ -203,7 +203,7 @@ export const products: Product[] = [
     bestsellerRank: 4,
     asin: "B08CXZJWM9",
     amazonUrl: "https://www.amazon.nl/dp/B08CXZJWM9",
-    imageUrl: "https://m.media-amazon.com/images/I/71SDWdMe2NL._AC_SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61R3HzfDYXL._AC_SL1500_.jpg",
     imageAlt: "Philips Hue Iris accent lamp",
   },
   {
