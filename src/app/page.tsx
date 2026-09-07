@@ -1,24 +1,37 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { BestsellersGrid } from "@/components/bestsellers-grid";
 import { ProductCard } from "@/components/product-card";
-import { getFeaturedProducts, rooms } from "@/lib/products";
+import {
+  getBestsellers,
+  getTikTokFeaturedProducts,
+  rooms,
+} from "@/lib/products";
 
 export default function Home() {
-  const featured = getFeaturedProducts();
+  const tiktokFeatured = getTikTokFeaturedProducts();
+  const bestsellers = getBestsellers(6);
 
   return (
     <div>
-      <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+      <section className="relative mx-auto w-full max-w-6xl overflow-hidden px-5 py-16 sm:px-8 sm:py-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgb(245_245_247)_0%,_transparent_55%)]"
+        />
+        <div className="max-w-2xl animate-[fade-up_0.7s_ease-out]">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-ink-soft">
+            JellyFinds
+          </p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
             Objects that glow a little.
           </h1>
           <p className="mt-4 max-w-lg text-base leading-7 text-ink-soft">
-            JellyFinds is a curated shop of decorative tech — lamps you can
-            hold, speakers that sit like stones, and desk lights that know
-            when to dim. Real products, straight from Amazon.nl.
+            A curated shop of decorative tech — lamps you can hold, speakers
+            that sit like stones, and desk lights that know when to dim. Real
+            products, straight from Amazon.nl.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap gap-3">
             <Link
               href="/shop"
               className="inline-flex h-11 items-center rounded-full bg-ink px-6 text-sm font-medium text-paper transition hover:bg-ink/85"
@@ -37,18 +50,22 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="grid gap-3 sm:grid-cols-3">
-          {rooms.map((room) => (
+          {rooms.map((room, index) => (
             <Link
               key={room.slug}
               href={`/shop?room=${room.slug}`}
-              className="group rounded-2xl bg-cream p-5 transition hover:bg-cream/70"
+              className="group rounded-2xl bg-cream p-5 transition duration-300 hover:bg-[#ebebed]"
+              style={{ animationDelay: `${index * 60}ms` }}
             >
               <h2 className="text-lg font-semibold tracking-tight">
                 {room.label}
               </h2>
-              <p className="mt-1 text-sm leading-relaxed text-ink-soft">{room.blurb}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-ink-soft group-hover:text-ink">
-                Browse <ArrowRight className="size-3.5 transition group-hover:translate-x-0.5" />
+              <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                {room.blurb}
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-ink-soft transition group-hover:text-ink">
+                Browse{" "}
+                <ArrowRight className="size-3.5 transition group-hover:translate-x-0.5" />
               </span>
             </Link>
           ))}
@@ -59,25 +76,33 @@ export default function Home() {
         <div className="mb-6 flex items-end justify-between gap-6">
           <div>
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-ink-soft">
-              Featured
+              Featured for TikTok
             </p>
             <h2 className="mt-1 text-2xl font-bold tracking-tight">
-              The glowing shelf
+              Camera-ready glow
             </h2>
+            <p className="mt-1 max-w-lg text-sm leading-relaxed text-ink-soft">
+              Five finds that photograph well and light a room without shouting.
+            </p>
           </div>
-          <Link href="/shop" className="hidden text-sm text-ink-soft hover:text-ink sm:inline">
-            See everything
+          <Link
+            href="/shop"
+            className="hidden text-sm text-ink-soft transition hover:text-ink sm:inline"
+          >
+            Browse shop
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {featured.map((product) => (
+          {tiktokFeatured.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>
       </section>
 
+      <BestsellersGrid initialProducts={bestsellers} />
+
       <section className="px-5 pb-16 sm:px-8">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-ink px-6 py-14 text-paper sm:px-12">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-ink px-6 py-14 text-paper sm:px-12">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-paper/50">
             From the studio
           </p>
@@ -90,7 +115,7 @@ export default function Home() {
           </p>
           <Link
             href="/about"
-            className="mt-7 inline-flex h-11 items-center rounded-full bg-paper px-6 text-sm font-medium text-ink"
+            className="mt-7 inline-flex h-11 items-center rounded-full bg-paper px-6 text-sm font-medium text-ink transition hover:bg-paper/90"
           >
             Read about JellyFinds
           </Link>

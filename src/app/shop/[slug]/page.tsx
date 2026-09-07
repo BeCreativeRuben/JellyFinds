@@ -52,7 +52,7 @@ export default async function ProductPage({
         </Link>
       </p>
       <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="overflow-hidden rounded-3xl bg-cream">
+        <div className="overflow-hidden rounded-[1.75rem] bg-cream">
           <ProductVisual product={product} size="lg" />
         </div>
         <div className="lg:py-4">
@@ -75,7 +75,11 @@ export default async function ProductPage({
               </li>
             ))}
           </ul>
-          <AddToCartButton amazonUrl={product.amazonUrl} className="mt-7" />
+          <AddToCartButton
+            amazonUrl={product.amazonUrl}
+            slug={product.slug}
+            className="mt-7"
+          />
         </div>
       </div>
       <section className="mt-20">
