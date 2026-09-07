@@ -39,10 +39,10 @@ export default function Home() {
               Shop all
             </Link>
             <Link
-              href="/about"
+              href="/shop?room=living-room"
               className="inline-flex h-11 items-center rounded-full bg-cream px-6 text-sm font-medium text-ink transition hover:bg-cream/70"
             >
-              About
+              Browse rooms
             </Link>
           </div>
         </div>
@@ -114,10 +114,10 @@ export default function Home() {
             needs a fifteen-page manual, it does not make the shelf.
           </p>
           <Link
-            href="/about"
+            href="/shop"
             className="mt-7 inline-flex h-11 items-center rounded-full bg-paper px-6 text-sm font-medium text-ink transition hover:bg-paper/90"
           >
-            Read about JellyFinds
+            Browse the shop
           </Link>
         </div>
       </section>

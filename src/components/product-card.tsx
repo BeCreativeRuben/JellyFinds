@@ -7,10 +7,10 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group">
       <Link
         href={`/shop/${product.slug}`}
-        className="block overflow-hidden rounded-[1.75rem] bg-cream transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-24px_rgb(29_29_31_/_0.35)]"
+        className="block overflow-hidden rounded-[1.75rem] bg-white shadow-[0_8px_30px_-18px_rgb(29_29_31_/_0.28)] ring-1 ring-ink/[0.06] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-20px_rgb(29_29_31_/_0.38)]"
       >
         <ProductVisual product={product} size="md" />
-        <div className="space-y-1.5 border-t border-ink/[0.04] px-5 py-4">
+        <div className="space-y-1.5 border-t border-ink/[0.06] bg-[#f5f5f7] px-5 py-4">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-ink-soft">
             {roomLabel(product.room)}
           </p>
