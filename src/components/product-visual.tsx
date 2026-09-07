@@ -4,10 +4,17 @@ import type { Product } from "@/lib/products";
 
 type Size = "sm" | "md" | "lg";
 
+/** Uniform 1:1 photo frames — object-contain keeps product proportions honest. */
 const sizes: Record<Size, string> = {
-  sm: "h-36",
-  md: "h-64",
-  lg: "h-[28rem]",
+  sm: "aspect-square w-full",
+  md: "aspect-square w-full",
+  lg: "aspect-square w-full",
+};
+
+const padding: Record<Size, string> = {
+  sm: "p-4",
+  md: "p-7",
+  lg: "p-10 sm:p-14",
 };
 
 export function ProductVisual({
@@ -45,7 +52,10 @@ export function ProductVisual({
         src={product.imageUrl}
         alt={product.imageAlt ?? product.name}
         fill
-        className="object-contain p-6"
+        className={cn(
+          "object-contain transition duration-500 ease-out group-hover:scale-[1.03]",
+          padding[size],
+        )}
         sizes={
           size === "lg"
             ? "(max-width: 1024px) 100vw, 55vw"

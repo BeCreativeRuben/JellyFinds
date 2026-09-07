@@ -33,16 +33,15 @@ export default function AboutPage() {
         </p>
         <p>
           Every product you see on JellyFinds is a real item available on
-          Amazon.nl. We hand-pick decorative tech that fits the quiet, colourful
-          rooms we care about, and link you straight to the Amazon product page
-          so you can buy with confidence. Prices shown are fetched from Amazon
-          and may change — always check the listing for the current offer.
+          Amazon.nl. We hand-pick decorative tech that fits the quiet rooms we
+          care about, and link you straight to the Amazon product page so you
+          can buy with confidence. Prices shown may change — always check the
+          listing for the current offer.
         </p>
         <p>
-          We plan to join the Amazon Associates programme in the future, which
-          means we may earn a small commission on purchases made through our
-          links — at no extra cost to you. For now, the links are clean and
-          tag-free.
+          As an Amazon Associate we may earn a small commission on purchases
+          made through our links — at no extra cost to you. Outbound Amazon.nl
+          links include our associate tag.
         </p>
       </div>
     </div>

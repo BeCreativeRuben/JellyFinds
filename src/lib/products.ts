@@ -26,11 +26,22 @@ export type Product = {
   accent: string;
   details: string[];
   featured?: boolean;
+  /** Lower = more popular. Used when click counts are unavailable. */
+  bestsellerRank: number;
   asin: string;
   amazonUrl: string;
   imageUrl?: string;
   imageAlt?: string;
 };
+
+/** Curated TikTok-ready shelf — shown on the homepage. */
+export const TIKTOK_FEATURED_SLUGS = [
+  "galaxy-projector",
+  "levitating-moon-lamp",
+  "philips-hue-go",
+  "philips-hue-iris",
+  "benq-screenbar-halo",
+] as const;
 
 export const rooms: { slug: Room; label: string; blurb: string }[] = [
   {
@@ -69,6 +80,7 @@ export const products: Product[] = [
       "Voice control (Alexa, Google, Apple Home)",
     ],
     featured: true,
+    bestsellerRank: 3,
     asin: "B07SQ2FZTK",
     amazonUrl: "https://www.amazon.nl/dp/B07SQ2FZTK",
     imageUrl: "https://m.media-amazon.com/images/I/71qxPLc1cAL._AC_SL1500_.jpg",
@@ -91,6 +103,7 @@ export const products: Product[] = [
       "Charcoal finish",
     ],
     featured: true,
+    bestsellerRank: 6,
     asin: "B09B8X9RGM",
     amazonUrl: "https://www.amazon.nl/dp/B09B8X9RGM",
     imageUrl: "https://m.media-amazon.com/images/I/714DG-pdqZL._AC_SL1500_.jpg",
@@ -114,6 +127,7 @@ export const products: Product[] = [
       "16 GB storage, black",
     ],
     featured: true,
+    bestsellerRank: 7,
     asin: "B0CFPWLGF2",
     amazonUrl: "https://www.amazon.nl/dp/B0CFPWLGF2",
     imageUrl: "https://m.media-amazon.com/images/I/61Xm27jEtkL._AC_SL1000_.jpg",
@@ -138,6 +152,7 @@ export const products: Product[] = [
       "45° angled drivers",
     ],
     featured: true,
+    bestsellerRank: 8,
     asin: "B08F5BQZL8",
     amazonUrl: "https://www.amazon.nl/dp/B08F5BQZL8",
     imageUrl: "https://m.media-amazon.com/images/I/61aza8PGr+L._AC_SL1500_.jpg",
@@ -161,6 +176,7 @@ export const products: Product[] = [
       "USB powered, matte black aluminium",
     ],
     featured: true,
+    bestsellerRank: 9,
     asin: "B0785D93KD",
     amazonUrl: "https://www.amazon.nl/dp/B0785D93KD",
     imageUrl: "https://m.media-amazon.com/images/I/41nI6sm+OKS._AC_SL1000_.jpg",
@@ -184,6 +200,7 @@ export const products: Product[] = [
       "Works with Alexa and Google Home",
     ],
     featured: true,
+    bestsellerRank: 4,
     asin: "B08CXZJWM9",
     amazonUrl: "https://www.amazon.nl/dp/B08CXZJWM9",
     imageUrl: "https://m.media-amazon.com/images/I/71SDWdMe2NL._AC_SL1500_.jpg",
@@ -207,6 +224,7 @@ export const products: Product[] = [
       "Remote control and timer",
     ],
     featured: true,
+    bestsellerRank: 1,
     asin: "B09M2V7X38",
     amazonUrl: "https://www.amazon.nl/dp/B09M2V7X38",
     imageUrl: "https://m.media-amazon.com/images/I/71aam8rrsAL._AC_SL1500_.jpg",
@@ -229,6 +247,7 @@ export const products: Product[] = [
       "16 colour modes",
       "Wooden base, polyester + wood construction",
     ],
+    bestsellerRank: 2,
     asin: "B0B7LQKYVZ",
     amazonUrl: "https://www.amazon.nl/dp/B0B7LQKYVZ",
     imageUrl: "https://m.media-amazon.com/images/I/71qTM2g319L._AC_SL1200_.jpg",
@@ -251,6 +270,7 @@ export const products: Product[] = [
       "WiFi — share via Frameo app",
       "Auto-rotation, slideshow mode",
     ],
+    bestsellerRank: 10,
     asin: "B0DNMGKW2H",
     amazonUrl: "https://www.amazon.nl/dp/B0DNMGKW2H",
     imageUrl: "https://m.media-amazon.com/images/I/71ZVgunY7tL._AC_SL1500_.jpg",
@@ -273,6 +293,7 @@ export const products: Product[] = [
       "Auto-dimming, adjustable colour temperature",
       "USB powered, aluminium, fits monitors up to 6 cm",
     ],
+    bestsellerRank: 5,
     asin: "B0DK59YKRS",
     amazonUrl: "https://www.amazon.nl/dp/B0DK59YKRS",
     imageUrl: "https://m.media-amazon.com/images/I/41fmQI53UNL._AC_SL1000_.jpg",
@@ -286,6 +307,30 @@ export function getProduct(slug: string) {
 
 export function getFeaturedProducts() {
   return products.filter((product) => product.featured);
+}
+
+export function getTikTokFeaturedProducts() {
+  return TIKTOK_FEATURED_SLUGS.map((slug) => getProduct(slug)).filter(
+    (product): product is Product => Boolean(product),
+  );
+}
+
+/** Sort by real click counts when present; otherwise by bestsellerRank. Never invents counts. */
+export function getBestsellers(
+  limit = 6,
+  clickCounts: Record<string, number> = {},
+) {
+  const hasClicks = Object.values(clickCounts).some((n) => n > 0);
+
+  return [...products]
+    .sort((a, b) => {
+      if (hasClicks) {
+        const diff = (clickCounts[b.slug] ?? 0) - (clickCounts[a.slug] ?? 0);
+        if (diff !== 0) return diff;
+      }
+      return a.bestsellerRank - b.bestsellerRank;
+    })
+    .slice(0, limit);
 }
 
 export function getProductsByRoom(room: Room) {
