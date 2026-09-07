@@ -52,7 +52,7 @@ export default async function ProductPage({
         </Link>
       </p>
       <div className="mt-6 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="overflow-hidden rounded-[1.75rem] bg-[#f5f5f7] shadow-[0_8px_30px_-18px_rgb(29_29_31_/_0.28)] ring-1 ring-ink/[0.05]">
+        <div className="overflow-hidden rounded-[1.75rem] bg-white shadow-[0_8px_30px_-18px_rgb(29_29_31_/_0.28)] ring-1 ring-ink/[0.06]">
           <ProductVisual product={product} size="lg" />
         </div>
         <div className="lg:py-4">
