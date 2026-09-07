@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group">
       <Link
         href={`/shop/${product.slug}`}
-        className="block overflow-hidden rounded-[1.75rem] bg-cream transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-24px_rgb(29_29_31_/_0.35)]"
+        className="block overflow-hidden rounded-[1.75rem] bg-cream shadow-[0_1px_0_rgb(29_29_31_/_0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-24px_rgb(29_29_31_/_0.35)]"
       >
         <ProductVisual product={product} size="md" />
         <div className="space-y-1.5 border-t border-ink/[0.04] px-5 py-4">
